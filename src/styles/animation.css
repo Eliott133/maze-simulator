@@ -1,0 +1,23 @@
+.animate-display-translate {
+    transform-origin: top;
+    animation: animate-display-translate 2s ease-in-out forwards;
+}
+
+@keyframes animate-display-translate {
+    0% {
+        transform: scaleY(0);
+        display: none;
+    }
+    20% {
+        transform: scaleY(1);
+        display: grid;
+    }
+    80% {
+        transform: scaleY(1);
+        display: grid;
+    }
+    100% {
+        transform: scaleY(0);
+        display: none;
+    }
+}
