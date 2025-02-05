@@ -40,7 +40,24 @@ function Canva({
             // Draw the grid
             for (let row = 0; row < rows; row++) {
                 for (let col = 0; col < cols; col++) {
-                    context.fillStyle = grid[row][col] === 0 ? pathColor : wallColor;
+                    switch (grid[row][col]) {
+                        case 0:
+                            context.fillStyle = pathColor;
+                            break;
+                        case 1:
+                            context.fillStyle = wallColor;
+                            break;
+                        case 2:
+                            context.fillStyle = "#f1c40f";
+                            break;
+                        case 3:
+                            context.fillStyle = "#e67e22";
+                            break;
+                        default:
+                            context.fillStyle = "#ffffff";
+                            break;
+                    }
+                    //context.fillStyle = grid[row][col] === 0 ? pathColor : wallColor;
                     context.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
                     context.strokeStyle = "#000000";
                     context.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
