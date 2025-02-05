@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Pannel from "./components/Pannel";
 import Canva from "./components/Canva";
 import UserFeedback from "./components/common/UserFeedback";
-import { sizeMapping, algoMapping, default_grid } from "./config/config";
+import { sizeMapping, algoMapping, default_grid, solverMapping, start_color, end_color } from "./config/config";
 
 function App() {
 
@@ -15,8 +15,9 @@ function App() {
 
   const [startPoint, setStartPoint] = useState(null); // Start point coordinates
   const [endPoint, setEndPoint] = useState(null);
-  const [startPointColor, setStartPointColor] = useState("yellow");
-  const [endPointColor, setEndPointColor] = useState("#ff0000");
+  const [startPointColor, setStartPointColor] = useState(start_color);
+  const [endPointColor, setEndPointColor] = useState(end_color);
+  const [delaySolver, setDelaySolver] = useState(10);
   const [isSelectingStart, setIsSelectingStart] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -82,7 +83,17 @@ function App() {
   };
 
   const handleSolve = () => {
-    console.log("Solving maze...");
+    const algoSolver = solverMapping[solverAlgo];
+
+    if(!algoSolver){
+      addFeedbackMessage("Erreur", "Veuillez selectionner un algorithme de résolution valide.");
+      return;
+    }
+    if(!startPoint && !endPoint){
+      addFeedbackMessage("Erreur", "Veuillez ajouter un point de départ et un point d'arriver. Il suffit de cliquer sur une case du labyrinthes");
+      return;
+    }
+    algoSolver(grid, startPoint, endPoint, setGrid, delaySolver, () =>{})
   };
 
   const handleClear = () => {
@@ -134,6 +145,7 @@ function App() {
             onClear={handleClear}
             onStartColor={(color) => setStartPointColor(color)}
             onEndColor={(color) => setEndPointColor(color)}
+            onDelayChange={(delay) => setDelaySolver(delay)}
           />
         </div>
 
