@@ -1,5 +1,7 @@
 # Maze Simulator
 
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white) ![DaisyUI](https://img.shields.io/badge/DaisyUI-UI_Framework-FF00FF?style=for-the-badge&logo=daisyui&logoColor=white)
+
 A React-based maze generation and solving simulator that visualizes various maze algorithms in real-time.
 
 ![Maze Simulator](https://raw.githubusercontent.com/Eliott133/maze-simulator/refs/heads/main/src/screen/screen.png)
