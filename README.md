@@ -73,20 +73,24 @@ All algorithms are implemented with:
 - npm/yarn
 
 ### Setup
-1)
+1) Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/Eliott133/maze-simulator.git
 ```
 
-2)
+2) Install dependencies
 ```bash
-# Install dependencies
 npm install
+```
 
-3)
-# Start development server
+3) Start development server
+```bash
 npm run dev
+```
+
+4) Open your browser at the following address 
+```bash
+http://localhost:5173/
 ```
 
 ### Project Structure
